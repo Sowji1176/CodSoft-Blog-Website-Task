@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXORA — Ideas for a Smarter Digital Future</title>
+<meta name="description" content="NEXORA is a technology, AI, design, career, and productivity publication exploring ideas that shape tomorrow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="dark">
+
+<!-- ===== READING PROGRESS BAR ===== -->
+<div class="reading-progress" id="readingProgress"></div>
+
+<!-- ===== HEADER / NAV ===== -->
+<header id="header">
+  <div class="nav-wrap">
+    <a href="#home" class="brand" data-nav="home">
+      <span class="brand-mark">NEXORA</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home" class="nav-link" data-nav="home">Home</a>
+      <a href="#articles" class="nav-link" data-nav="articles">Articles</a>
+      <a href="#categories" class="nav-link" data-nav="categories">Categories</a>
+      <a href="#about" class="nav-link" data-nav="about">About</a>
+      <a href="#contact" class="nav-link" data-nav="contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Open search" aria-expanded="false">&#128269;</button>
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" aria-pressed="true">&#9728;</button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- SEARCH PANEL -->
+  <div class="search-panel" id="searchPanel">
+    <div class="search-panel-inner">
+      <input type="text" id="searchInput" placeholder="Search articles, topics, tags..." aria-label="Search articles">
+      <button class="search-clear" id="searchClear" aria-label="Clear search">&times;</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" class="mobile-link" data-nav="home">Home</a>
+  <a href="#articles" class="mobile-link" data-nav="articles">Articles</a>
+  <a href="#categories" class="mobile-link" data-nav="categories">Categories</a>
+  <a href="#about" class="mobile-link" data-nav="about">About</a>
+  <a href="#contact" class="mobile-link" data-nav="contact">Contact</a>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ===== HOME VIEW ===== -->
+<main id="homeView">
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner reveal">
+      <span class="hero-brand">NEXORA</span>
+      <p class="hero-tagline">Ideas for a smarter digital future.</p>
+      <h1>Explore Ideas That Shape Tomorrow.</h1>
+      <p class="hero-sub">NEXORA explores artificial intelligence, technology, design, career growth, and productivity — for people building the digital world of tomorrow.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" id="ctaExplore">Explore Articles</button>
+        <button class="btn-outline" id="ctaLatest">Latest Insights</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLE -->
+  <section class="featured">
+    <div class="featured-card reveal" id="featuredCard"></div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories" class="categories">
+    <div class="section-head reveal">
+      <span class="eyebrow">Browse</span>
+      <h2>Categories</h2>
+    </div>
+    <div class="category-row" id="categoryRow"></div>
+  </section>
+
+  <!-- ARTICLE GRID -->
+  <section id="articles" class="articles-section">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest</span>
+      <h2>Latest Articles</h2>
+    </div>
+
+    <div class="active-tag-row" id="activeTagRow"></div>
+
+    <div class="article-grid" id="articleGrid"></div>
+
+    <p class="no-results" id="noResults">No articles found. Try a different search or filter.</p>
+
+    <div class="load-more-wrap">
+      <button class="btn-outline" id="loadMoreBtn">Load More</button>
+      <p class="all-loaded" id="allLoadedMsg">You've reached the end — that's every article.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about-section">
+    <div class="about-inner reveal">
+      <span class="eyebrow">About Nexora</span>
+      <h2>A publication for the digitally curious.</h2>
+      <p>NEXORA is a fictional editorial platform exploring ideas across artificial intelligence, technology, design, career development, and productivity. We publish practical, thoughtful pieces for people building, designing, and working in an increasingly digital world — without the hype.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <span class="eyebrow">Get In Touch</span>
+        <h2>Contact Nexora</h2>
+        <p>Have a story idea, a correction, or feedback? We'd like to hear it.</p>
+        <p class="contact-email-line">&#9993; hello@nexora.example</p>
+      </div>
+      <form class="contact-form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="cName">Name</label>
+          <input type="text" id="cName" placeholder="Your name">
+          <p class="field-error" id="cNameError"></p>
+        </div>
+        <div class="field">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" placeholder="you@example.com">
+          <p class="field-error" id="cEmailError"></p>
+        </div>
+        <div class="field">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" rows="4" placeholder="Your message"></textarea>
+          <p class="field-error" id="cMessageError"></p>
+        </div>
+        <button type="submit" class="btn-primary full-width">Send Message</button>
+        <p class="form-success" id="formSuccess">Thanks — your message has been sent.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== ARTICLE DETAIL VIEW ===== -->
+<main id="articleView" class="article-view">
+  <div class="article-container">
+
+    <button class="back-btn" id="backToArticles">&larr; Back to Articles</button>
+
+    <span class="article-category" id="detailCategory"></span>
+    <h1 class="article-title" id="detailTitle"></h1>
+
+    <div class="article-meta-row">
+      <span id="detailAuthor"></span>
+      <span class="meta-dot">&middot;</span>
+      <span id="detailDate"></span>
+      <span class="meta-dot">&middot;</span>
+      <span id="detailReadTime"></span>
+    </div>
+
+    <img id="detailImage" class="article-hero-img" alt="">
+
+    <div class="article-content" id="detailContent"></div>
+
+    <div class="article-tags" id="detailTags"></div>
+
+    <!-- SOCIAL SHARING -->
+    <div class="share-row">
+      <span class="share-label">Share:</span>
+      <button class="share-btn" id="shareLinkedIn" aria-label="Share on LinkedIn">in</button>
+      <button class="share-btn" id="shareFacebook" aria-label="Share on Facebook">f</button>
+      <button class="share-btn" id="shareX" aria-label="Share on X">&#120143;</button>
+      <button class="share-btn" id="shareCopy" aria-label="Copy link">&#128279;</button>
+      <span class="copy-confirm" id="copyConfirm">Link copied!</span>
+    </div>
+
+    <!-- COMMENTS -->
+    <section class="comments-section">
+      <h2>Comments</h2>
+      <div id="commentsList" class="comments-list"></div>
+      <p class="no-comments" id="noComments">No comments yet. Be the first to share your thoughts.</p>
+
+      <form class="comment-form" id="commentForm" novalidate>
+        <div class="field">
+          <label for="commentName">Name</label>
+          <input type="text" id="commentName" placeholder="Your name">
+          <p class="field-error" id="commentNameError"></p>
+        </div>
+        <div class="field">
+          <label for="commentText">Comment</label>
+          <textarea id="commentText" rows="3" placeholder="Share your thoughts..."></textarea>
+          <p class="field-error" id="commentTextError"></p>
+        </div>
+        <button type="submit" class="btn-primary">Post Comment</button>
+      </form>
+    </section>
+
+    <!-- RELATED ARTICLES -->
+    <section class="related-section">
+      <h2>You May Also Like</h2>
+      <div class="related-grid" id="relatedGrid"></div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark">NEXORA</span>
+      <p>Ideas for a smarter digital future.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <a href="#home" data-nav="home">Home</a>
+      <a href="#articles" data-nav="articles">Articles</a>
+      <a href="#categories" data-nav="categories">Categories</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#" data-footer-category="AI & Innovation">AI & Innovation</a>
+      <a href="#" data-footer-category="Technology">Technology</a>
+      <a href="#" data-footer-category="Design">Design</a>
+      <a href="#" data-footer-category="Career">Career</a>
+      <a href="#" data-footer-category="Productivity">Productivity</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="#">LinkedIn</a>
+      <a href="#">X (Twitter)</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 NEXORA. All rights reserved.</p>
+    <p class="footer-note">Independent fictional editorial concept created for a front-end development project.</p>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">&uarr;</button>
+
+<script src="script.js"></script>
+</body>
+</html>
