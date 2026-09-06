@@ -9,7 +9,7 @@ The project focuses on creating a professional reading experience with organized
 ## 🌐 Visit Website
 
 **Live Demo:**  
-Visit NEXORA Blog Website: 
+Visit NEXORA Blog Website: https://sowji1176.github.io/CodSoft-Blog-Website-Task/
 
 ## 📌 Project Overview
 
